@@ -1,0 +1,90 @@
+<div class="mt-5 container">
+  <h3>Messages</h3>
+
+  <div id="messages" style="z-index: 0; position: relative;" class="row gy-4">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-body text-center">
+          <i class="fa-solid fa-spinner fa-spin fa-3x text-danger"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+    .card{
+        transition: all ease-in-out 1.5s;
+        cursor: all-scroll;
+    }
+    .card:hover{
+        background-color: lightcyan;
+    }
+</style>
+
+
+<script>
+
+async function getMessages() {
+    let requestMessages = await fetch(`${serverURL}/?q=getMessages`);
+    let response = await requestMessages.json();
+    // console.log(response);
+
+    let messages = response.messages;
+    let messagesContainer = document.getElementById("messages");
+    messagesContainer.innerHTML = ''
+    
+    if(messages.length > 0){
+      messages.forEach(msg => {
+
+let container = document.createElement("div");
+container.classList.add("col-md-6", "col-lg-4");
+
+// Create a card element
+let card = document.createElement("div");
+card.classList.add("card");
+
+// Create a card body element
+let cardBody = document.createElement("div");
+cardBody.classList.add("card-body");
+
+// Create a paragraph for each piece of information
+let nameParagraph = document.createElement("p");
+nameParagraph.innerHTML = `<b><i class="fa-regular fa-user me-2"></i> Name:</b> ${msg.fullname}`;
+
+let emailParagraph = document.createElement("p");
+emailParagraph.innerHTML = `<b><i class="fa-regular fa-envelope me-2"></i> Email:</b> ${msg.email}`;
+
+let phoneParagraph = document.createElement("p");
+phoneParagraph.innerHTML = `<b><i class="fa-solid fa-phone me-2"></i> Contact:</b> ${msg.phone}`;
+
+let messageParagraph = document.createElement("p");
+messageParagraph.innerHTML = `<b><i class="fa-regular fa-comment me-2"></i> Message:</b> ${msg.message}`;
+
+// Create a card footer
+let cardFooter = document.createElement("div");
+cardFooter.classList.add("card-footer");
+cardFooter.innerHTML = `<p class="text-danger">${new Date(msg.date_created).toDateString()} , ${new Date(msg.date_created).toLocaleTimeString()}</p>`;
+
+// Append elements to the card and card body
+cardBody.appendChild(nameParagraph);
+cardBody.appendChild(emailParagraph);
+cardBody.appendChild(phoneParagraph);
+cardBody.appendChild(messageParagraph);
+
+card.appendChild(cardBody);
+card.appendChild(cardFooter);
+
+// Append the card to the messages container
+container.appendChild(card);
+
+messagesContainer.appendChild(container);
+});
+    } else{
+      messagesContainer.innerHTML = "<p> No Messages received. </p>"
+    }
+}
+
+getMessages()
+
+</script>

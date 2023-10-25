@@ -1,0 +1,54 @@
+<div class="mt-5 container">
+  <h3>Prophet Powerman Bekoe | Admin</h3>
+
+  <div class="row gy-3 mt-3">
+    <div class="col-md-6">
+      <div class="card" onclick="redirect('events')">
+        <div class="card-body align-items-center row">
+          <div class="col-2">
+            <i class="fa-solid fa-3x fa-calendar-days text-danger"></i>
+          </div>
+          <div class="col-10">
+            <h3>Events</h3>
+          </div>
+        </div>
+        <div class="card-footer text-center"><h6 id="events_counts" class="fw-bold">0</h6></div>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <div class="card" onclick="redirect('messages')">
+        <div class="card-body align-items-center row">
+          <div class="col-2">
+            <i class="fa-solid fa-3x fa-comments text-danger"></i>
+          </div>
+          <div class="col-10">
+            <h3>Messages</h3>
+          </div>
+        </div>
+        <div class="card-footer text-center"><h6 id="msgs_counts" class="fw-bold">0</h6></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+    .card{
+        transition: all ease-in-out 1.5s;
+        cursor: pointer;
+    }
+    .card:hover{
+        background-color: black;
+        color: white;
+        border-color: white;
+    }
+    .card-footer:hover{
+      border-color: white;
+    }
+</style>
+
+<script>
+    function redirect(page){
+        location.replace(`?page=${page}`)
+    }
+</script>

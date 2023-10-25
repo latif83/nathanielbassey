@@ -1,0 +1,257 @@
+<div class="mt-3 container">
+  <h1 class="m-0">Events</h1>
+  <div class="text-end">
+    <button
+      class="btn btn-dark"
+      data-bs-toggle="modal"
+      data-bs-target="#addEventModal"
+    >
+      <i class="fa-solid fa-circle-plus me-1"></i> Add Event
+    </button>
+  </div>
+
+  <div class="table-responsive mt-3 rounded text-center">
+    <table id="events" class="table table-striped rounded table-success">
+      <thead>
+        <tr>
+          <th>Image</th>
+          <th>Event</th>
+          <th>Description</th>
+          <th>Time</th>
+          <th>From</th>
+          <th>To</th>
+          <th>#</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+            <td colspan="7">
+                <i class="fa-solid fa-spinner fa-spin"></i>
+            </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- Modals here... -->
+<div
+  class="modal fade"
+  id="addEventModal"
+  tabindex="-1"
+  aria-labelledby="addEventModalLabel"
+  aria-hidden="true"
+  style="z-index: 999999999"
+>
+  <div class="modal-dialog modal-lg">
+    <form id="addEventForm" class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="addEventModalModalLabel">
+          Add a new Event:
+        </h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+          id="dismissEventModal"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <div class="mb-3">
+          <label for="title" class="col-form-label">Event title:</label>
+          <input
+            type="text"
+            placeholder="Enter the title of the event..."
+            class="form-control"
+            id="title"
+            name="eventTitle"
+            required
+          />
+        </div>
+
+        <div class="mb-3">
+            <label for="description" class="col-form-label">Description:</label>
+            <textarea
+            placeholder="Enter the description of the event..."
+            class="form-control"
+            id="description"
+            name="eventDesc"
+            required
+          ></textarea>
+          </div>
+
+          <div class="row">
+            <div class="mb-3 col-6">
+              <label for="startDate" class="col-form-label">Starting Date:</label>
+              <input
+                type="date"
+                placeholder="Enter email"
+                class="form-control"
+                id="startDate"
+                name="eventFromDate"
+                required
+              />
+            </div>
+            <div class="mb-3 col-6">
+              <label for="endDate" class="col-form-label">Ending Date:</label>
+              <input
+                type="date"
+                class="form-control"
+                id="endDate"
+                name="eventToDate"
+                required
+              />
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label for="time" class="col-form-label">Time for event start:</label>
+            <input
+              type="time"
+              class="form-control"
+              id="time"
+              name="eventTime"
+              required
+            />
+          </div>
+
+          <div class="mb-3">
+            <label for="eventImage" class="col-form-label">Event Image / Flyer:</label>
+            <input
+              type="file"
+              class="form-control"
+              id="eventImage"
+              accept="image/*"
+              name="eventImage"
+              required
+              onchange="previewImage(this)"
+            />
+          </div>
+
+          <div class="text-center mx-auto">
+            <img id="imagePreview" class="mx-auto" src="" alt="Image Preview" style="max-width: 300px; display: none;">
+          </div>
+
+        
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          Close
+        </button>
+        <button type="submit" class="btn btn-primary">Add event</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div
+  class="modal fade"
+  id="editEventModal"
+  tabindex="-1"
+  aria-labelledby="editEventModalLabel"
+  aria-hidden="true"
+  style="z-index: 999999999"
+>
+  <div class="modal-dialog modal-lg">
+    <form id="editEventForm" class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="editEventModalModalLabel">
+          Edit Event:
+        </h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+          id="dismissEditEventModal"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <div class="mb-3">
+          <label for="editTitle" class="col-form-label">Event title:</label>
+          <input
+            type="text"
+            placeholder="Enter the title of the event..."
+            class="form-control"
+            id="editTitle"
+            name="eventTitle"
+            required
+          />
+        </div>
+
+        <div class="mb-3">
+            <label for="editDescription" class="col-form-label">Description:</label>
+            <textarea
+            placeholder="Enter the description of the event..."
+            class="form-control"
+            id="editDescription"
+            name="eventDesc"
+            required
+          ></textarea>
+          </div>
+
+          <div class="row">
+            <div class="mb-3 col-6">
+              <label for="editStartDate" class="col-form-label">Starting Date:</label>
+              <input
+                type="date"
+                placeholder="Enter email"
+                class="form-control"
+                id="editStartDate"
+                name="eventFromDate"
+                required
+              />
+            </div>
+            <div class="mb-3 col-6">
+              <label for="editEndDate" class="col-form-label">Ending Date:</label>
+              <input
+                type="date"
+                class="form-control"
+                id="editEndDate"
+                name="eventToDate"
+                required
+              />
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label for="editTime" class="col-form-label">Time for event start:</label>
+            <input
+              type="time"
+              class="form-control"
+              id="editTime"
+              name="eventTime"
+              required
+            />
+          </div>
+
+          <div class="mb-3">
+            <label for="eventImage" class="col-form-label">Change Event Image / Flyer:</label>
+            <input
+              type="file"
+              class="form-control"
+              id="eventImage"
+              accept="image/*"
+              name="eventImage"
+              onchange="previewEditEventImage(this)"
+            />
+          </div>
+
+          <div class="text-center mx-auto">
+            <img id="editImagePreview" class="mx-auto" src="" alt="Image Preview" style="max-width: 300px;">
+          </div>
+
+        
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          Close
+        </button>
+        <button type="submit" class="btn btn-danger">Save Changes</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script src="events.js"></script>

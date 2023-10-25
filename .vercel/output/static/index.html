@@ -3,7 +3,14 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Nathanielbassey - Born to worship</title>
+    <title>
+      Prophet Powerman Bekoe - Cofie Bekoe Ministries - Jesus to the world
+    </title>
+    <link rel="icon" type="image/png" href="./assets/images/logo.jpg" />
+    <meta
+      name="description"
+      content="Welcome to Cofie Bekoe Ministries, a place of worship, community, and spiritual growth. Join us for inspiring sermons, fellowship, and events that bring you closer to God and your fellow believers. Experience the love and grace of Jesus with us."
+    />
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -16,7 +23,6 @@
       crossorigin="anonymous"
     ></script>
     <link rel="stylesheet" href="styles.css" />
-    <script src="script.js" defer async></script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -29,9 +35,13 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"
+    />
   </head>
   <body>
-    <header class="py-2 shadow-lg">
+    <header class="py-2 shadow">
       <div class="container d-flex justify-content-between align-items-center">
         <img
           src="./assets/images/logo.png"
@@ -49,18 +59,6 @@
             class="p-3 rounded-2 text-decoration-none text-light fw-bold"
             href="/"
           >
-            PROFILE
-          </a>
-          <a
-            class="p-3 rounded-2 text-decoration-none text-light fw-bold"
-            href="/"
-          >
-            ALBUMS
-          </a>
-          <a
-            class="p-3 rounded-2 text-decoration-none text-light fw-bold"
-            href="/"
-          >
             VIDEOS
           </a>
           <a
@@ -70,16 +68,20 @@
             BLOG
           </a>
           <a
+            data-bs-toggle="modal"
+            data-bs-target="#contactUsModal"
             class="p-3 rounded-2 text-decoration-none text-light fw-bold"
             href="/"
           >
-            BOOKINGS
+            CONTACT
           </a>
           <a
+            data-bs-toggle="modal"
+            data-bs-target="#locateUsModal"
             class="p-3 rounded-2 text-decoration-none text-light fw-bold"
-            href="/"
+            href="#location"
           >
-            BEST
+            LOCATION
           </a>
         </nav>
         <div class="menuBTNs">
@@ -104,18 +106,6 @@
           class="p-3 rounded-2 text-decoration-none text-light fw-bold"
           href="/"
         >
-          PROFILE
-        </a>
-        <a
-          class="p-3 rounded-2 text-decoration-none text-light fw-bold"
-          href="/"
-        >
-          ALBUMS
-        </a>
-        <a
-          class="p-3 rounded-2 text-decoration-none text-light fw-bold"
-          href="/"
-        >
           VIDEOS
         </a>
         <a
@@ -125,59 +115,106 @@
           BLOG
         </a>
         <a
+          data-bs-toggle="modal"
+          data-bs-target="#contactUsModal"
           class="p-3 rounded-2 text-decoration-none text-light fw-bold"
           href="/"
         >
-          BOOKINGS
+          CONTACT
         </a>
         <a
+          data-bs-toggle="modal"
+          data-bs-target="#locateUsModal"
           class="p-3 rounded-2 text-decoration-none text-light fw-bold"
-          href="/"
+          href="#location"
         >
-          BEST
+          LOCATION
         </a>
       </div>
     </header>
 
-    <div class="banner">
-      <video id="bannerVideo" autoplay loop muted>
-        <source src="./assets/videos/bg_video.mp4" type="video/mp4" />
-      </video>
+    <div class="messages">
+      <div id="successMsg" class="alert alert-primary alert-dismissible fade show" role="alert">
+          <span></span>
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        <div id="errMsg" class="alert alert-danger alert-dismissible fade show" role="alert">
+          <span></span>
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    </div>
 
-      <div class="text-light d-flex align-items-center w-100 msgs h-100">
-        <div class="container">
-          <h1
-            class="fw-bold animate__animated animate__backInLeft"
-            style="font-size: 5em"
+    <div class="banner pt-5">
+      <div class="container p-0">
+        <div class="row m-0 border-none align-items-center">
+          <div class="col-md-6 p-0">
+            <h1
+              class="fw-bold animate__animated animate__backInLeft"
+              style="font-size: 5em"
+            >
+              WELCOME
+            </h1>
+            <p class="animate__animated animate__backInRight fs-5">
+              Get the latest update about my ministry and preachings
+            </p>
+            <button
+              data-bs-toggle="modal"
+              data-bs-target="#contactUsModal"
+              style="background-image: url(./assets/images/grid.svg)"
+              class="animate__animated animate__backInUp mt-3 conBTN btn btn-dark border border-light border-2 d-flex align-items-center"
+            >
+              <i class="fa-solid fa-phone fa-2x me-2"></i>
+              <p class="m-0">Contact Us</p>
+            </button>
+          </div>
+
+          <div
+            class="col-md-6 bannerImgCon rounded d-flex justify-content-center overflow-hidden"
           >
-            WELCOME
-          </h1>
-          <p class="animate__animated animate__backInRight">
-            Get the latest update about my music and ministry
-          </p>
-          <button
-            class="animate__animated animate__backInUp mt-5 btn btn-dark ms-3 border border-light border-2 d-flex align-items-center"
-          >
-            <i class="fa-brands fa-apple fa-4x me-2"></i>
-            <div>
-              <p class="m-0">Available on</p>
-              <h2 class="m-0">iTunes</h2>
-            </div>
-          </button>
+            <img
+              class="bannerImg animate__animated animate__backInUp"
+              src="./assets/images/powerman1.jpg"
+              style="height: 500px; width: auto"
+              alt=""
+            />
+            <!-- <img class="rounded" src="./assets/images/powerman1.jpg" style="height: 400px; width: auto;" alt=""> -->
+          </div>
         </div>
       </div>
     </div>
 
-    <div class="mt-3 albums">
-      <div class="text-center my-4">
+    <div class="mt-5">
+      <div class="container">
+        <!-- <div class="border-bottom text-center">
+          <img src="./assets/images/powerman2.jpg" alt="" class="rounded" width="100">
+          <h3>Prophet Powerman Bekoe</h3>
+        </div>
+        <div>
+          The Vision is to send JESUS to the World
+        </div> -->
+        <h1 class="border-bottom">Vision</h1>
+        <p>The Vision is to send JESUS to the World</p>
+
+        <h1 class="border-bottom mt-3">Mission</h1>
+        <p>
+          JESUS being the totality of GOD means his manifested dimensions must
+          be unveiled in creation through Sons. Diverse programs like seminars ,
+          mentorships and more are set in place for the emergence of Sons across
+          the nations of the world.
+        </p>
+      </div>
+    </div>
+
+    <div class="mt-5">
+      <!-- <div class="text-center my-4">
         <h1 class="fw-bold">LATEST ALBUMS</h1>
         <hr style="width: 100px" class="border-dark border-2 bg-dark mx-auto" />
         <p>Your favourite songs now at your finger tips.</p>
-      </div>
+      </div> -->
 
       <div class="container">
         <div class="row">
-          <div class="col-md-6 mt-3">
+          <!-- <div class="col-md-6 mt-3">
             <img
               class="w-100"
               src="./assets/images/hallelujah-live.jpg"
@@ -190,49 +227,75 @@
                 goodness and glory!
               </p>
             </div>
-          </div>
-          <div class="col-md-6 mt-3">
-            <div class="row rounded overflow-hidden m-0">
-              <div class="col-4 m-0 p-0">
-                <img src="./assets/images/ha-art.jpg" alt="" class="w-100" />
-              </div>
-              <div class="col-4 m-0 p-0">
-                <img src="./assets/images/tkic-art.jpg" alt="" class="w-100" />
-              </div>
-              <div class="col-4 m-0 p-0">
-                <img src="./assets/images/NB_J-art.jpg" alt="" class="w-100" />
-              </div>
-              <div class="col-4 m-0 p-0">
-                <img src="./assets/images/sonofgod.jpg" alt="" class="w-100" />
-              </div>
-              <div class="col-4 m-0 p-0">
-                <img
-                  src="./assets/images/nathaniel-bassey-someone-at-the-door.jpg"
-                  alt=""
-                  class="w-100"
-                />
-              </div>
-              <div class="col-4 m-0 p-0">
-                <img src="./assets/images/600x600.jpg" alt="" class="w-100" />
-              </div>
-              <div class="col-4 m-0 p-0">
-                <img
-                  src="./assets/images/71o27LjEkAL._SS500_.jpg"
-                  alt=""
-                  class="w-100"
-                />
-              </div>
-              <div class="col-4 m-0 p-0">
-                <img src="./assets/images/art-NB.png" alt="" class="w-100" />
-              </div>
-              <div class="col-4 m-0 p-0">
-                <img
-                  src="./assets/images/hallelujah-live.jpg"
-                  alt=""
-                  class="w-100"
-                />
+          </div> -->
+          <div class="col-md-12">
+            <!-- Swiper -->
+            <div class="swiper mySwiper">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                  <img src="./assets/images/powerman1.jpg" />
+                </div>
+                <div class="swiper-slide">
+                  <img src="./assets/images/powerman2.jpg" />
+                </div>
+                <div class="swiper-slide">
+                  <img src="./assets/images/powerman3.jpg" />
+                </div>
+                <div class="swiper-slide">
+                  <img src="./assets/images/powerman4.jpg" />
+                </div>
+                <div class="swiper-slide">
+                  <img src="./assets/images/powerman5.jpg" />
+                </div>
+                <div class="swiper-slide">
+                  <img src="./assets/images/powerman6.jpg" />
+                </div>
+                <div class="swiper-slide">
+                  <img src="./assets/images/powerman7.jpg" />
+                </div>
               </div>
             </div>
+            <!-- <div class="row rounded overflow-hidden m-0">
+              <div class="col-4 m-0 p-0">
+                <img src="./assets/images/powerman1.jpg" alt="" class="w-100" />
+              </div>
+              <div class="col-4 m-0 p-0">
+                <img src="./assets/images/powerman2.jpg" alt="" class="w-100" />
+              </div>
+              <div class="col-4 m-0 p-0">
+                <img src="./assets/images/powerman3.jpg" alt="" class="w-100" />
+              </div>
+              <div class="col-4 m-0 p-0">
+                <img src="./assets/images/powerman4.jpg" alt="" class="w-100" />
+              </div>
+              <div class="col-4 m-0 p-0">
+                <img
+                  src="./assets/images/powerman5.jpg"
+                  alt=""
+                  class="w-100"
+                />
+              </div>
+              <div class="col-4 m-0 p-0">
+                <img src="./assets/images/powerman6.jpg" alt="" class="w-100" />
+              </div>
+              <div class="col-4 m-0 p-0">
+                <img
+                  src="./assets/images/powerman7.jpg"
+                  alt=""
+                  class="w-100"
+                />
+              </div>
+              <div class="col-4 m-0 p-0">
+                <img src="./assets/images/powerman1.jpg" alt="" class="w-100" />
+              </div>
+              <div class="col-4 m-0 p-0">
+                <img
+                  src="./assets/images/powerman2.jpg"
+                  alt=""
+                  class="w-100"
+                />
+              </div>
+            </div> -->
           </div>
         </div>
       </div>
@@ -246,99 +309,151 @@
       <div class="container">
         <h1>Upcoming Events</h1>
 
-        <div class="row m-0">
-          <div class="col-12 mt-3 row bg-light m-0 p-0 rounded overflow-hidden">
-            <div class="col-md-3 p-0">
-              <img
-                src="./assets/images/hallelujah-live.jpg"
-                class="w-100 p-0 m-0"
-                style="height: 100%; object-fit: cover"
-                alt=""
-              />
-            </div>
-            <div class="col-md-9 text-dark py-3">
-              <h3 class="fw-bold">Events title here and title here</h3>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam
-                ipsa porro delectus corporis eveniet et vitae voluptatibus
-                molestias unde aperiam veniam necessitatibus eius iusto, laborum
-                id ratione, quae doloremque. Praesentium.
-              </p>
-              <p class="fw-bold">
-                Saturday, 20th November, 2023 <br />
-                12:30 PM
-              </p>
-              <div
-                class="d-flex card-footer text-center justify-content-between border-top"
-              >
-                <span>
-                  <b class="fs-3 text-danger">0</b> <br />
-                  <b>days</b>
-                </span>
-                <span>
-                  <b class="fs-3 text-danger">0</b> <br />
-                  <b>hours</b>
-                </span>
-                <span>
-                  <b class="fs-3 text-danger">0</b> <br />
-                  <b>minutes</b>
-                </span>
-                <span>
-                  <b class="fs-3 text-danger">0</b> <br />
-                  <b>seconds</b>
-                </span>
+        <div id="eventsContainer" class="row m-0">
+          <div class="col-12 mt-3 row m-0 p-0 rounded overflow-hidden">
+            <div class="col-md-12 text-center">
+              <i class="fa-solid fa-spinner fa-spin fa-3x"></i> <br />
+              Loading events...
+            
               </div>
-            </div>
-          </div>
-
-          <div class="col-12 row bg-light m-0 p-0 mt-3 rounded overflow-hidden">
-            <div class="col-md-3 p-0">
-              <img
-                src="./assets/images/hallelujah-live.jpg"
-                class="w-100 p-0 m-0"
-                style="height: 100%; object-fit: cover"
-                alt=""
-              />
-            </div>
-            <div class="col-md-9 text-dark py-3">
-              <h3 class="fw-bold">Events title here and title here</h3>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam
-                ipsa porro delectus corporis eveniet et vitae voluptatibus
-                molestias unde aperiam veniam necessitatibus eius iusto, laborum
-                id ratione, quae doloremque. Praesentium.
-              </p>
-              <p class="fw-bold">
-                Saturday, 20th November, 2023 <br />
-                12:30 PM
-              </p>
-              <div
-                class="d-flex card-footer text-center justify-content-between border-top"
-              >
-                <span>
-                  <b class="fs-3 text-danger">0</b> <br />
-                  <b>days</b>
-                </span>
-                <span>
-                  <b class="fs-3 text-danger">0</b> <br />
-                  <b>hours</b>
-                </span>
-                <span>
-                  <b class="fs-3 text-danger">0</b> <br />
-                  <b>minutes</b>
-                </span>
-                <span>
-                  <b class="fs-3 text-danger">0</b> <br />
-                  <b>seconds</b>
-                </span>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </div>
+    </div>
 
-    <div class="mt-5 py-5">
+    <div class="mb-4 p-1">
+      <h1 class="mt-5 mb-4 text-center">Watch Our Sermons</h1>
+      <!-- Swiper -->
+      <div class="swiper myVidSwiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <iframe
+              style="width: 100%; height: 280px"
+              class="rounded"
+              width="560"
+              height="315"
+              src="https://www.youtube.com/embed/fwmJdayxMS4"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen
+            ></iframe>
+          </div>
+          <div class="swiper-slide">
+            <iframe
+              style="width: 100%; height: 280px"
+              class="rounded"
+              width="560"
+              height="315"
+              src="https://www.youtube.com/embed/zZgm3S7eTxM"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen
+            ></iframe>
+          </div>
+          <div class="swiper-slide">
+            <iframe
+              style="width: 100%; height: 280px"
+              class="rounded"
+              width="560"
+              height="315"
+              src="https://www.youtube.com/embed/SbDb2gSsWpM"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen
+            ></iframe>
+          </div>
+          <div class="swiper-slide">
+            <iframe
+              style="width: 100%; height: 280px"
+              class="rounded"
+              width="560"
+              height="315"
+              src="https://www.youtube.com/embed/kTWazgJHl0Q"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen
+            ></iframe>
+          </div>
+          <div class="swiper-slide">
+            <iframe
+              style="width: 100%; height: 280px"
+              class="rounded"
+              width="560"
+              height="315"
+              src="https://www.youtube.com/embed/5W4i0VhY_tc"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen
+            ></iframe>
+          </div>
+          <div class="swiper-slide">
+            <iframe
+              style="width: 100%; height: 280px"
+              class="rounded"
+              width="560"
+              height="315"
+              src="https://www.youtube.com/embed/L9z_zu2pvwA"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen
+            ></iframe>
+          </div>
+        </div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-pagination"></div>
+      </div>
+      <!-- <div class="row m-0">
+        <div class="col-md-4 mb-3">
+          <div class="embed-responsive embed-responsive-16by9">
+            <iframe style="width: 100%; height: 280px;" class="rounded" width="560" height="315" src="https://www.youtube.com/embed/fwmJdayxMS4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+          </div>
+        </div>
+        <div class="col-md-4 mb-3">
+          <div class="embed-responsive embed-responsive-16by9">
+            <iframe style="width: 100%; height: 280px;" class="rounded" width="560" height="315" src="https://www.youtube.com/embed/zZgm3S7eTxM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+          </div>
+        </div>
+        <div class="col-md-4 mb-3">
+          <div class="embed-responsive embed-responsive-16by9">
+            <iframe style="width: 100%; height: 280px;" class="rounded" width="560" height="315" src="https://www.youtube.com/embed/SbDb2gSsWpM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+          </div>
+        </div>
+        <div class="col-md-4 mb-3">
+          <div class="embed-responsive embed-responsive-16by9">
+            <iframe style="width: 100%; height: 280px;" class="rounded" width="560" height="315" src="https://www.youtube.com/embed/kTWazgJHl0Q" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+          </div>
+        </div>
+        <div class="col-md-4 mb-3">
+          <div class="embed-responsive embed-responsive-16by9">
+            <iframe style="width: 100%; height: 280px;" class="rounded" width="560" height="315" src="https://www.youtube.com/embed/5W4i0VhY_tc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="embed-responsive embed-responsive-16by9">
+            <iframe style="width: 100%; height: 280px;" class="rounded" width="560" height="315" src="https://www.youtube.com/embed/L9z_zu2pvwA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+          </div>
+        </div>
+      </div> -->
+      <div class="text-center mt-2">
+        <a
+          href="https://www.youtube.com/@prophetpowermanbekoe1295"
+          target="_blank"
+          class="btn btn-danger"
+        >
+          <i class="fa-brands fa-youtube"></i> Click to Join Our Channel Now for
+          Updates</a
+        >
+      </div>
+    </div>
+
+    <!-- <div class="mt-5 py-5">
       <div class="container">
         <div class="text-center">
           <h1>LATEST NEWS</h1>
@@ -407,7 +522,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
 
     <div class="gallery">
       <div class="row m-0">
@@ -444,29 +559,48 @@
       </div>
     </div>
 
+    <div id="location" class="location-container mt-3">
+      <h2 class="p-3">Locate Us:</h2>
+      <p class="ps-2">THAGOSPEL CHURCH, Halleluyah Junction, Accra</p>
+      <div id="map">
+        <iframe
+          class="w-100"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15881.012481665923!2d-0.2554758!3d5.6765026999999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xfdf9f4df7adcb59%3A0xb277288105e12c4b!2sTHAGOSPEL%20CHURCH!5e0!3m2!1sen!2sgh!4v1687111217817!5m2!1sen!2sgh"
+          width="600"
+          height="450"
+          style="border: 0"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+        ></iframe>
+      </div>
+    </div>
+
     <footer>
       <div class="text-light" style="background-color: black">
         <div class="container py-4">
           <div class="row m-0">
             <div class="col-md-6 mt-3">
-              <h3 class="fw-bold">Bookings</h3>
-              <p>Lagos, Nigeria</p>
-              <p>bookings@nathanielbassey.com</p>
+              <h3 class="fw-bold">Contact Us:</h3>
+              <p>+233 55 697 8861</p>
             </div>
 
             <div class="col-md-6 mt-3">
               <h3 class="fw-bold">Reach us Online</h3>
-              <p>www.nathanielbassey.com</p>
-              <p>info@nathanielbassey.com</p>
+              <p>www.powerman.com</p>
+              <p>info@powerman.com</p>
               <div class="social-links d-flex justify-content-between mt-5">
-                <a class="text-secondary" href="">
+                <!-- <a class="text-secondary" href="">
                   <i class="fa-brands fa-instagram fa-2x"></i>
-                </a>
+                </a> -->
                 <a class="text-secondary" href="">
-                  <i class="fa-brands fa-twitter fa-2x"></i>
+                  <i class="fa-brands fa-youtube fa-2x"></i>
                 </a>
                 <a class="text-secondary" href="">
                   <i class="fa-brands fa-facebook fa-2x"></i>
+                </a>
+                <a class="text-secondary" href="">
+                  <i class="fa-brands fa-whatsapp fa-2x"></i>
                 </a>
               </div>
             </div>
@@ -475,9 +609,158 @@
       </div>
       <div class="py-4 bg-dark text-light">
         <div class="container">
-          <p class="m-0">&copy; 2023 Nathaniel Bassey</p>
+          <p class="m-0">&copy; 2023 Bekoe Ministries</p>
         </div>
       </div>
     </footer>
+
+    <!-- Modals here... -->
+    <div
+      class="modal fade"
+      id="contactUsModal"
+      tabindex="-1"
+      aria-labelledby="contactUsModalLabel"
+      aria-hidden="true"
+      style="z-index: 999999999"
+    >
+      <div class="modal-dialog">
+        <form id="contactUsForm" class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="contactUsModalLabel">Contact Us:</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+              id="dismissContactUsModal"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <p>Prophet Cofie PowerMan Bekoe</p>
+            <p class="mb-0">
+              <a href="mailto:cofiebekoeministries@gmail.com">
+                <i class="fa-solid fa-envelope me-3"></i>
+                cofiebekoeministries@gmail.com</a
+              >
+            </p>
+            <p class="">
+              <a href="tel:+233 556 978 861">
+                <i class="fa-solid fa-phone me-3"></i> +233 556 978 861</a
+              >
+            </p>
+            <p>
+              <i class="fa-solid fa-church me-3"></i> P.O Box T1515 Accra West,
+              Ghana
+            </p>
+            <div class="mb-3">
+              <label for="fullname" class="col-form-label">Full Name:</label>
+              <input
+                type="text"
+                placeholder="Enter your fullname..."
+                class="form-control"
+                id="fullname"
+                name="fullname"
+                required
+              />
+            </div>
+            <div class="row">
+              <div class="mb-3 col-6">
+                <label for="email" class="col-form-label"
+                  >Email: <span class="badge bg-info">optional</span></label
+                >
+                <input
+                  type="text"
+                  placeholder="Enter email"
+                  class="form-control"
+                  id="email"
+                  name="email"
+                />
+              </div>
+              <div class="mb-3 col-6">
+                <label for="phone" class="col-form-label">Phone:</label>
+                <input
+                  type="text"
+                  placeholder="Enter mobile"
+                  class="form-control"
+                  id="phone"
+                  name="phone"
+                  required
+                />
+              </div>
+            </div>
+            <div class="mb-3">
+              <label for="message-text" class="col-form-label">Message:</label>
+              <textarea
+                placeholder="Enter your message..."
+                class="form-control"
+                id="message-text"
+                name="message"
+                required
+              ></textarea>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+            <button type="submit" class="btn btn-primary">Send message</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div
+      class="modal fade"
+      id="locateUsModal"
+      tabindex="-1"
+      aria-labelledby="locateUsModalLabel"
+      aria-hidden="true"
+      style="z-index: 999999999"
+    >
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="locateUsModalLabel">Locate Us:</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <p class="ps-2">THAGOSPEL CHURCH, Halleluyah Junction, Accra</p>
+            <div id="map">
+              <iframe
+                class="w-100"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15881.012481665923!2d-0.2554758!3d5.6765026999999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xfdf9f4df7adcb59%3A0xb277288105e12c4b!2sTHAGOSPEL%20CHURCH!5e0!3m2!1sen!2sgh!4v1687111217817!5m2!1sen!2sgh"
+                width="600"
+                height="450"
+                style="border: 0"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+              ></iframe>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <script src="script.js" defer async></script>
   </body>
 </html>

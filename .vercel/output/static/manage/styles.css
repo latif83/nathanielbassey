@@ -1,0 +1,91 @@
+* {
+    font-family: "Inter", sans-serif;
+  }
+  
+  header {
+    transition: all ease-in-out 1s;
+    position: sticky;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    /* background-color: rgba(0, 0, 0, 0.507); */
+    background-color: #44A2BC;
+    z-index: 999;
+  }
+  
+  header nav a {
+    transition: all ease-in-out 1s;
+  }
+  
+  header nav a:hover {
+    background-color: white;
+    color: black !important;
+  }
+  
+  header nav {
+    display: flex;
+  }
+  
+  #menuBTN {
+    display: flex;
+    flex-direction: column;
+    width: 30px;
+    gap: 5px;
+    cursor: pointer;
+  }
+  
+  #menuBTN div {
+    height: 5px;
+    width: 100%;
+    background-color: white;
+    border-radius: 1rem;
+  }
+  
+  header .menuBTNs {
+    display: none;
+  }
+  
+  #responsiveMenu {
+    transition: display ease-in-out 2s;
+    display: none;
+  }
+  
+  header .container {
+    position: relative;
+  }
+
+  #loading{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: #44a2bc43;
+    align-items: center;
+    justify-content: center;
+    display: none;
+  }
+
+  .messages{
+    position: absolute;
+    top: 10%;
+    left: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .messages #successMsg,#errMsg{
+    display: none;
+  }
+
+  @media screen and (max-width: 600px) {
+    header nav {
+      display: none;
+    }
+    header .menuBTNs {
+      display: flex;
+    }
+  }

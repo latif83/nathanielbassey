@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        Admin Page - Prophet Powerman Bekoe - Cofie Bekoe Ministries - Jesus to the world
+      </title>
+      <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+        <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../libraries/fontawesome/css/all.min.css" />
+    <script src="../libraries/fontawesome/js/all.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <script src="../libraries/jquery.js"></script>
+</head>
+<body>
+    <header class="py-2 shadow">
+        <div class="container d-flex justify-content-between align-items-center">
+          <img
+            src="../assets/images/logo.png"
+            alt="Logo"
+            style="width: 200px; height: auto; cursor: pointer;"
+            onclick="location.replace('?page=dashboard')"
+          />
+          <nav class="justify-content-end" style="flex: 1">
+            <a
+              class="p-3 rounded-2 text-decoration-none text-light fw-bold"
+              href="?page=events"
+            >
+              Events
+            </a>
+            <a
+              class="p-3 rounded-2 bg-light text-decoration-none text-dark fw-bold position-relative"
+              href="?page=messages"
+            >
+              Messages
+              <span id="msg1" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                0
+                <span class="visually-hidden">unread messages</span>
+              </span>
+            </a>
+            <a
+              class="p-3 rounded-2 text-decoration-none text-light fw-bold"
+              onclick="logout()"
+              href="?page=login"
+            >
+              Logout
+            </a>
+          </nav>
+          <div class="menuBTNs">
+            <div id="menuBTN">
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
+          </div>
+  
+          <!-- Responsive Menu -->
+        </div>
+  
+        <div class="rounded py-3 justify-content-evenly" id="responsiveMenu">
+            <a
+            class="p-3 rounded-2 text-decoration-none text-light fw-bold"
+            href="?page=events"
+          >
+            Events
+          </a>
+          <a
+            class="p-3 rounded-2 text-decoration-none bg-light text-dark fw-bold position-relative"
+            href="?page=messages"
+          >
+            Messages
+            <span id="msg2" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                0
+                <span class="visually-hidden">unread messages</span>
+              </span>
+          </a>
+          <a
+              class="p-3 rounded-2 text-decoration-none text-light fw-bold"
+              onclick="logout()"
+              href="?page=login"
+            >
+              Logout
+            </a>
+        </div>
+      </header>
+
+      <div id="loading">
+        <i class="fa-solid fa-spinner fa-spin fa-4x text-danger"></i>
+      </div>
+
+      <div class="messages">
+        <div id="successMsg" class="alert alert-success alert-dismissible fade show" role="alert">
+            <span></span>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+          <div id="errMsg" class="alert alert-danger alert-dismissible fade show" role="alert">
+            <span></span>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+      </div>
+
+      <div id="mainContainer" class="contents">
+
+      </div>
+
+      <script src="script.js" defer async></script>
+</body>
+</html>

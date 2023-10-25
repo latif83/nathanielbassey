@@ -4,12 +4,12 @@
 
 header {
   transition: all ease-in-out 1s;
-  position: fixed;
+  position: sticky;
   top: 0%;
   left: 0%;
   width: 100%;
   /* background-color: rgba(0, 0, 0, 0.507); */
-  background-color: rgba(38, 0, 255, 0.375);
+  background-color: #44A2BC;
   z-index: 999999999;
 }
 
@@ -54,22 +54,68 @@ header .container {
   position: relative;
 }
 
+.bannerImg{
+  border-top-right-radius: 1rem;
+  border-top-left-radius: 1rem;
+}
+
+.swiper {
+  width: 100%;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.swiper-slide {
+  background-position: center;
+  background-size: cover;
+  width: 300px !important;
+  height: 300px !important;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+}
+
 .banner {
-  height: 100vh;
-  overflow: hidden;
+  background-color: #44a2bc7c;
+  background-image: url(./assets/images/grid.svg);
+  background-position: bottom;
+  background-size: contain;
+  background-blend-mode: luminosity;
   position: relative;
 }
 
-.banner video {
+.banner .container{
+  position: relative;
+  z-index: 1;
+}
+
+.banner::after{
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  /* background-color: rgba(255, 0, 0, 0.068); */
+  background-image: url(./assets/images/slide.png);
+  background-size: cover;
+  background-blend-mode: luminosity;
+  background-position: bottom;
+  z-index: 0;
+}
+
+/* .banner img {
   height: inherit;
   width: auto;
   min-width: 100%;
   object-fit: cover;
   overflow: hidden;
   object-position: center bottom;
-}
+} */
 
-.msgs{
+/* .msgs{
     position: absolute;
     z-index: 999;
     top: 0;
@@ -77,7 +123,7 @@ header .container {
     width: 100%;
     height: 100%;
     background-color: rgba(38, 0, 255, 0.124);
-}
+} */
 
 .events{
     position: relative;
@@ -118,12 +164,31 @@ header .container {
     color: white !important;
 }
 
+.messages{
+  position: absolute;
+  top: 5%;
+  left: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999999999999999999;
+}
+
+.messages #successMsg,#errMsg{
+  display: none;
+}
+
 @media screen and (max-width: 995px) {
   header nav {
     display: none;
   }
   header .menuBTNs {
     display: flex;
+  }
+  .banner h1{
+    font-size: 4em !important;
   }
 }
 
@@ -144,10 +209,34 @@ header .container {
     text-align: center;
     border-radius: 0% !important;
   }
+  .banner{
+    text-align: center !important;
+  }
+  .bannerImgCon{
+    margin-top: 5%;
+  }
 }
 
 @media screen and (max-width:600px) {
     .msgs h1{
         font-size: 4em !important;
     }
+    .conBTN{
+      margin-left: auto;
+      margin-right: auto;
+    }
+}
+
+@media screen and (max-width:450px) {
+  .bannerImgCon{
+    margin-top: 5%;
+    padding: 2%;
+    padding-bottom: 0%;
+    box-sizing: border-box;
+  }
+
+  .bannerImg{
+    width: 100% !important;
+    height: auto !important;
+  }
 }
