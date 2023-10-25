@@ -109,7 +109,8 @@ if (paramValue) {
   });
 }
 
-let serverURL = "http://localhost/powermanserver";
+// let serverURL = "http://localhost/powermanserver";
+let serverURL = "https://spotlightscoop.000webhostapp.com/powermanServer"
 
 async function getSummary(){
   let makeRequest = await fetch(`${serverURL}/?q=getSummaryCount`)

@@ -88,7 +88,8 @@ var swiper = new Swiper(".myVidSwiper", {
   },
 });
 
-let serverURL = "http://localhost/powermanserver";
+// let serverURL = "http://localhost/powermanserver";
+let serverURL = "https://spotlightscoop.000webhostapp.com/powermanServer"
 
 let successMsg = document.getElementById("successMsg");
 let successMsgSpan = successMsg.querySelector("span");
